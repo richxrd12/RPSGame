@@ -1,0 +1,64 @@
+html{
+    background-color: #0D47A1;
+    color: white;
+    font-family: "Roboto Mono", monospace;
+}
+
+#game{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#game img{
+    width: 100px;
+    height: 100px;
+}
+
+#buttons button{
+    border: none;
+    background-color: #0D47A1;
+    border: 10px lightcoral solid;
+    border-radius: 50%;
+    margin-inline: 10px;
+}
+
+#buttons button:hover{
+    border: 10px red solid;
+    transform: translateY(-20px) ;
+    transition: 1s;
+}
+
+#victories span{
+    color: lightgreen;
+    font-weight: bold;
+}
+
+#loses span{
+    color: lightcoral;
+    font-weight: bold;
+}
+
+#draws span{
+    color: yellow;
+    font-weight: bold;
+}
+
+#results{
+    width: 80%;
+    max-width: 425px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#reset-button{
+    font-family: "Roboto Mono", monospace;
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+}
