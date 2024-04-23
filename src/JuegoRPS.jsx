@@ -5,12 +5,16 @@ export const JuegoRPS = () =>{
     const piedraURL = './src/piedra.png'
     const papelURL = './src/papel.png'
     const tijeraURL = './src/tijera.png'
+    const closeButton = './src/icon-close.webp'
 
+    //Lógica del juego
     const [choose, setChosen] = useState(
         {
             victorias: 0,
             empate: 0,
-            derrotas: 0
+            derrotas: 0,
+            resultado: '',
+            jugada: ''
         }
     )
 
@@ -18,86 +22,95 @@ export const JuegoRPS = () =>{
     
     const chooseRock = () =>{
         const numRandom = randomNum()
-        var finalObj = {...choose}
     
         if (numRandom < 33){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                empate: choose.empate + 1
-            }
-            console.log("Piedra")
+                empate: choose.empate + 1,
+                resultado: 'empate',
+                jugada: 'Piedra'
+            }) //Toca piedra
             
         }else if (numRandom > 33 && numRandom < 67){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                derrotas: choose.derrotas + 1
-            }
-            console.log("Papel")
+                derrotas: choose.derrotas + 1,
+                resultado: 'derrota',
+                jugada: 'Papel'
+            })//Toca papel
              
         }else{
-            var finalObj = {
+            setChosen({
                 ...choose,
-                victorias: choose.victorias + 1
-            }
-            console.log("Tijera")
+                victorias: choose.victorias + 1,
+                resultado: 'victoria',
+                jugada: 'Tijera'
+            }) //Toca tijera
+            
         }
-        setChosen(finalObj); 
+        toggleElement();
     }
 
     const choosePaper = () =>{
         const numRandom = randomNum()
-        var finalObj = {...choose}
     
         if (numRandom < 33){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                victorias: choose.victorias + 1
-            }
-            console.log("Piedra")
+                victorias: choose.victorias + 1,
+                resultado: 'victoria',
+                jugada: 'Piedra'
+            })//Toca piedra
             
         }else if (numRandom > 33 && numRandom < 67){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                empate: choose.empate + 1
-            }
-            console.log("Papel")
+                empate: choose.empate + 1,
+                resultado: 'empate',
+                jugada: 'Papel'
+            })//Toca papel
              
         }else{
-            var finalObj = {
+            setChosen({
                 ...choose,
-                derrotas: choose.derrotas + 1
-            }
-            console.log("Tijera")
+                derrotas: choose.derrotas + 1,
+                resultado: 'derrota',
+                jugada: 'Tijera'
+            })//Toca tijera
+
         }
-        setChosen(finalObj); 
+        toggleElement();
     }
 
     const chooseScissors = () => {
         const numRandom = randomNum()
-        var finalObj = {...choose}
     
         if (numRandom < 33){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                derrotas: choose.derrotas + 1
-            }
-            console.log("Piedra")
+                derrotas: choose.derrotas + 1,
+                resultado: 'derrota',
+                jugada: 'Piedra'
+            })//Toca piedra
             
         }else if (numRandom > 33 && numRandom < 67){
-            var finalObj = {
+            setChosen({
                 ...choose,
-                victorias: choose.victorias + 1
-            }
-            console.log("Papel")
+                victorias: choose.victorias + 1,
+                resultado: 'victoria',
+                jugada: 'Papel'
+            })//Toca papel
              
         }else{
-            var finalObj = {
+            setChosen({
                 ...choose,
-                empate: choose.empate + 1
-            }
-            console.log("Tijera")
+                empate: choose.empate + 1,
+                resultado: 'empate',
+                jugada: 'Tijera'
+            })//Toca tijera
+        
         }
-        setChosen(finalObj);
+        toggleElement();
     }
 
     const numRondas = () =>{
@@ -110,24 +123,47 @@ export const JuegoRPS = () =>{
         const resettedObj = {
             victorias: 0,
             empate: 0,
-            derrotas: 0
+            derrotas: 0,
+            resultado: '',
+            jugada: ''
         }
         setChosen(resettedObj)
+    }
+
+    //Mostrar resultados
+
+    const [active, setActive] = useState(false)
+
+    const toggleElement = () =>{
+        setActive(!active)
     }
 
     return(
         <div id="game">
             <h1>Ronda {numRondas()}</h1>
+            <div id="marcador">
+                <h2>Marcador</h2>
+                <div id="results">
+                    <p id="victories">Victorias: <span>{choose.victorias}</span></p>
+                    <p id="draws">Empates: <span>{choose.empate}</span></p>
+                    <p id="loses">Derrotas: <span>{choose.derrotas}</span></p>
+                </div>
+            </div>
             <div id="buttons">
                 <button id="rock" onClick={chooseRock}><img src={piedraURL} alt="Piedra"/></button>
                 <button id="paper" onClick={choosePaper}><img src={papelURL} alt="Papel" /></button>
                 <button id="scissors" onClick={chooseScissors}><img src={tijeraURL} alt="Tijera" /></button>
             </div>
-            <div id="results">
-                <p id="victories">Victorias: <span>{choose.victorias}</span></p>
-                <p id="draws">Empates: <span>{choose.empate}</span></p>
-                <p id="loses">Derrotas: <span>{choose.derrotas}</span></p>
-            </div>
+            {active ? (
+                <div id="tarjeta">
+                    <button id="close-icon" onClick={toggleElement}><img src={closeButton} alt="" /></button>
+                    <div id="jugadas">
+                        <p>Jugada de la máquina: <span id={choose.resultado}>{choose.jugada}</span></p>
+                        <p id={choose.resultado}>{choose.resultado}</p>
+                    </div>
+                </div>
+            ) : ""}
+            
             <button id="reset-button" onClick={resetValues}>Reset</button>
         </div>
     )

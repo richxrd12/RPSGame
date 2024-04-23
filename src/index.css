@@ -2,6 +2,7 @@ html{
     background-color: #0D47A1;
     color: white;
     font-family: "Roboto Mono", monospace;
+    width: 100%;
 }
 
 #game{
@@ -10,6 +11,15 @@ html{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+h1{
+    color: lightcoral;
+}
+
+h1:hover{
+    color: red;
+    transition: 1s;
 }
 
 #game img{
@@ -23,6 +33,7 @@ html{
     border: 10px lightcoral solid;
     border-radius: 50%;
     margin-inline: 10px;
+    margin-block: 20px;
 }
 
 #buttons button:hover{
@@ -46,9 +57,17 @@ html{
     font-weight: bold;
 }
 
+#marcador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
 #results{
     width: 80%;
-    max-width: 425px;
+    max-width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,4 +80,65 @@ html{
     height: 30px;
     border-radius: 20px;
     font-weight: bold;
+}
+
+#reset-button:hover{
+    background-color: lightcoral;
+    color: #0D47A1;
+    transition: 1s;
+}
+
+#tarjeta{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    border-radius: 20px;
+    border: 5px solid black;
+}
+
+#jugadas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: black;
+    font-size: 25px;
+}
+
+#jugadas p{
+    margin-block: 30px;
+}
+
+#derrota{
+    color: red;
+    text-transform: capitalize;
+}
+
+#victoria{
+    color: green;
+    text-transform: capitalize;
+}
+
+#empate{
+    color: yellow;
+    text-transform: capitalize;
+}
+
+#close-icon{
+    background-color: lightcoral;
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin: 20px 30px 0 0;
+}
+
+#close-icon img{
+    width: 50px;
+    height: 50px;
 }
