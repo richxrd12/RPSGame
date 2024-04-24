@@ -1,0 +1,161 @@
+html{
+    background-color: #0D47A1;
+    color: white;
+    font-family: "Roboto Mono", monospace;
+    width: max-content;
+    margin: 0 auto;
+}
+
+body{
+    margin: 0 auto;
+}
+
+#game{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10rem auto;
+}
+
+h1{
+    color: lightcoral;
+}
+
+h1:hover{
+    color: red;
+    transition: 1s;
+}
+
+#game img{
+    width: 70px;
+    height: 70px;
+}
+
+#buttons button{
+    border: none;
+    background-color: #0D47A1;
+    border: 10px lightcoral solid;
+    border-radius: 50%;
+    margin-inline: 10px;
+    margin-block: 20px;
+}
+
+#buttons button:hover{
+    border: 10px red solid;
+    transform: translateY(-20px) ;
+    transition: 1s;
+}
+
+#victories span{
+    color: lightgreen;
+    font-weight: bold;
+}
+
+#loses span{
+    color: lightcoral;
+    font-weight: bold;
+}
+
+#draws span{
+    color: yellow;
+    font-weight: bold;
+}
+
+#marcador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+#results{
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#reset-button{
+    font-family: "Roboto Mono", monospace;
+    border: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#reset-button:hover{
+    background-color: lightcoral;
+    color: #0D47A1;
+    transition: 1s;
+}
+
+#tarjeta{
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    border-radius: 20px;
+    border: 5px solid black;
+}
+
+#jugadas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: black;
+    font-size: 20px;
+}
+
+#jugadas p{
+    margin-block: 10px;
+}
+
+#derrota{
+    color: red;
+    text-transform: capitalize;
+}
+
+#victoria{
+    color: green;
+    text-transform: capitalize;
+}
+
+#empate{
+    color: yellow;
+    text-transform: capitalize;
+}
+
+#close-icon{
+    background-color: lightcoral;
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin: 20px 30px 0 0;
+}
+
+#close-icon img{
+    width: 40px;
+    height: 40px;
+}
+
+@media (min-width: 800px){
+    #game img{
+        width: 100px;
+        height: 100px;
+    }
+    #close-icon img{
+        width: 50px;
+        height: 50px;
+    }
+    
+}
